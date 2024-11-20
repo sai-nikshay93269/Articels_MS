@@ -10,9 +10,10 @@ const {
     filterArticlesByTag,
     countArticles,
 } = require('../controllers/articleController');
-
+const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
+router.use(authMiddleware);
 // Create a new article
 router.post('/', createArticle);
 
